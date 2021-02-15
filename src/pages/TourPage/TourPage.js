@@ -82,7 +82,7 @@ export default function TourPage(props) {
     width: '100%',
     height: '100%',
   });
-  console.log(bookings);
+
   const navControlStyle = {
     right: 10,
     top: 10,
@@ -90,7 +90,7 @@ export default function TourPage(props) {
   const handleClickOpen = () => {
     setOpen(true);
   };
-  console.log(user);
+
   const handleClose = () => {
     setOpen(false);
   };

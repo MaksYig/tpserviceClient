@@ -52,7 +52,7 @@ export const NavBar = (props) => {
     setOpen(false);
   };
 
-  console.log(user);
+
   return (
     <AppBar position='static' className='Navbar__wrapper'>
       <Toolbar className='Navbar'>
