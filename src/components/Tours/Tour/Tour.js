@@ -59,7 +59,6 @@ export default function Tour() {
                 className={classes.media}
                 image='https://www.meissl.com/media/images/8f24db1f/schweiz.jpg'
                 title={tour.name}
-                
               />
               <CardContent className={classes.CardContent}>
                 <Box
@@ -67,6 +66,10 @@ export default function Tour() {
                   display='flex'
                   borderColor='transparent'
                 >
+                  <Typography
+                    component='span'
+                    variant='body2'
+                  >{`(${tour?.ratingQuantity})`}</Typography>
                   <Rating
                     className={classes.RatingStars}
                     name='half-rating-read'

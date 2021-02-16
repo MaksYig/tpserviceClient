@@ -10,6 +10,7 @@ import {
   Box,
   CardActionArea,
 } from '@material-ui/core';
+import ImageAvatar from '../../components/Avatar/Avatar'
 import { makeStyles } from '@material-ui/core/styles';
 
 // Import Swiper styles
@@ -193,3 +194,4 @@ export const MainSlider = () => {
     </Swiper>
   );
 };
+

@@ -56,6 +56,7 @@ import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import TodayOutlinedIcon from '@material-ui/icons/TodayOutlined';
 import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
 import TourPreorder from '../../components/PopUp/TourPreorder/TourPreorder';
+import { TourReviewSlider } from '../../components/Slider/reviewSlider';
 // import Dialog from '@material-ui/core/Dialog';
 // import DialogTitle from '@material-ui/core/DialogTitle';
 
@@ -78,7 +79,7 @@ export default function TourPage(props) {
   const [viewport, SetViewPort] = useState({
     latitude: 37.9908997,
     longitude: 23.7733589,
-    zoom: 8,
+    zoom: 7,
     width: '100%',
     height: '100%',
   });
@@ -273,7 +274,8 @@ export default function TourPage(props) {
                       {'Rating:'.toUpperCase()}
                     </Typography>
                     &nbsp;&nbsp;
-                    {tour?.ratingAvarage}/5{' '}
+                    {tour?.ratingAvarage}&nbsp;
+                    {`(${tour?.ratingQuantity})`} / &nbsp;5
                   </Typography>
                 </Box>
               </Grid>
@@ -288,7 +290,7 @@ export default function TourPage(props) {
               >
                 <ImageAvatar
                   size='medium'
-                  src='https://www.meissl.com/media/images/8f24db1f/schweiz.jpg'
+                  src={`https://tpservice.herokuapp.com/public/img/users/${tour?.guides[0]?.photo}`}
                 />
                 &nbsp;
                 <Typography component='span' variant='body1'>
@@ -392,11 +394,11 @@ export default function TourPage(props) {
           <Grid item xs={12} md={6}>
             <ReactMapGl
               {...viewport}
-              // width='100%'
+              width='100%'
               height='450px'
               mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
               onViewportChange={(viewport) => SetViewPort(viewport)}
-              mapStyle='mapbox://styles/maksydev/ckj3aru9dbe7519s35iswpn0f'
+              mapStyle='mapbox://styles/maksydev/ckl8m1vzx03cm17n01lnkbbxu'
               className={classes.map}
             >
               <NavigationControl style={navControlStyle} />
@@ -445,6 +447,10 @@ export default function TourPage(props) {
             </Grid>
           ))}
         </Grid>
+
+        <Box mt={4} mb={4} pr={3} pl={3}>
+          <TourReviewSlider reviewArr={tour?.review} />
+        </Box>
       </CardContent>
       <CardActions className={classes.CardActions}>
         <Grid container spacing={2} justify='center' alignItems='center'>
