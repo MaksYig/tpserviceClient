@@ -1,7 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
-import ReactMapGl, { Marker, NavigationControl, Popup } from 'react-map-gl';
+import ReactMapGl, {
+  Marker,
+  NavigationControl,
+  Popup,
+  ScaleControl,
+} from 'react-map-gl';
 import { useDispatch, useSelector } from 'react-redux';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { getTourById } from '../../redux/actions/tours';
 import Pin from '../../Assets/img/comp/pin.svg';
 import ImageAvatar from '../../components/Avatar/Avatar';
@@ -82,16 +87,11 @@ export default function TourPage(props) {
   const [viewport, SetViewPort] = useState({
     latitude: 37.9908997,
     longitude: 23.7733589,
-    zoom: 7,
+    zoom: 8,
     width: '100%',
     height: '100%',
-
   });
 
-  const navControlStyle = {
-    right: 10,
-    top: 10,
-  };
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -118,8 +118,8 @@ export default function TourPage(props) {
     setExpanded(!expanded);
   };
 
-const toScroll = () =>
-  myRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const toScroll = () =>
+    myRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
   //For running only once when page render
   useEffect(() => {
@@ -416,8 +416,9 @@ const toScroll = () =>
               mapStyle='mapbox://styles/maksydev/ckl8m1vzx03cm17n01lnkbbxu'
               className={classes.map}
               scrollZoom={false}
+            
             >
-              <NavigationControl style={navControlStyle} />
+              <NavigationControl className={classes.NavControl}/>
               {tour?.locations?.map((loc) => (
                 <Marker
                   key={loc._id}

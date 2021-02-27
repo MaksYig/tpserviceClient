@@ -95,6 +95,11 @@ export default makeStyles((theme) => ({
   map: {
     height: '100%',
   },
+  NavControl:{
+    position:'absolute',
+    top:10,
+    right:10,
+  },
   marker: {
     // transform: 'translate(-50%,-100%)',
   },
