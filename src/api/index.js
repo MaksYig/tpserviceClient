@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:5000/api/ver1' });
-// const API = axios.create({
-//   baseURL: 'https://tpservice.herokuapp.com/api/ver1',
-// });
+// const API = axios.create({ baseURL: 'http://localhost:5000/api/ver1' });
+const API = axios.create({
+  baseURL: 'https://tpservice.herokuapp.com/api/ver1',
+});
 const config = {
   withCredentials: true,
 };
