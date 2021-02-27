@@ -17,6 +17,7 @@ import {
 } from '@material-ui/core';
 import makeStyles from './styles';
 import { getMyBookings, deleteMyBooking } from '../../redux/actions/booking';
+import AddReview from '../PopUp/AddReview/Addreview'
 
 export default function BookingCard() {
   const classes = makeStyles();
@@ -222,9 +223,10 @@ export default function BookingCard() {
                   )}
                   {new Date(book.tourDate) < Date.now() && (
                     <Grid item>
-                      <Button variant='contained' color='primary'>
+                      <AddReview tourId={book.tour._id}/>
+                      {/* <Button variant='contained' color='primary'>
                         Add Review
-                      </Button>
+                      </Button> */}
                     </Grid>
                   )}
                 </Grid>

@@ -5,7 +5,7 @@ export default makeStyles((theme) => ({
   root: {
     Width: '100%',
   },
- 
+
   paper: {
     padding: '6px 16px',
     textAlign: 'center',
@@ -114,5 +114,13 @@ export default makeStyles((theme) => ({
   },
   CardActions: {
     padding: '30px 5px',
+  },
+  timeTitle:{
+    fontWeight:600,
+    fontSize:14,
+  },
+  timeSubTitle:{
+    fontWeight:400,
+    fontSize:12
   },
 }));

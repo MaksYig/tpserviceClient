@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from './styles';
 import {
   Container,
   Grid,
@@ -17,25 +17,7 @@ import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined';
 import IndeterminateCheckBoxOutlinedIcon from '@material-ui/icons/IndeterminateCheckBoxOutlined';
 import { createBooking } from '../../../redux/actions/booking';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    padding: '10px 10px 35px 10px',
-  },
-  Container: {
-    padding: '25px 10px',
-  },
-  backButton: {
-    marginRight: theme.spacing(1),
-  },
-  Stepper: {
-    padding: 0,
-  },
-  instructions: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-  },
-}));
+
 
 function getSteps() {
   return [
@@ -46,7 +28,7 @@ function getSteps() {
 }
 
 export default function TourPreorder(props) {
-  const classes = useStyles();
+  const classes = makeStyles();
   const dispatch = useDispatch();
   const [activeStep, setActiveStep] = useState(0);
   const [tour, SetTour] = useState();
@@ -65,12 +47,12 @@ export default function TourPreorder(props) {
 
     /* Add dispatch methode with formData */
     dispatch(createBooking(formData));
-    console.log(formData);
+    // console.log(formData);
     setTimeout(() => {
       props.setClose();
     }, 4000);
   };
-  console.log(tour?._id);
+  // console.log(tour?._id);
 
   useEffect(() => {
     SetTour(tourData);
@@ -232,7 +214,7 @@ export default function TourPreorder(props) {
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Typography component='div' className={classes.instructions}>
+            <Typography component='div' variant='h6' className={classes.success}>
               Tour has been Ordered!!!
             </Typography>
             {/* <Button onClick={handleReset}>Reset</Button> */}

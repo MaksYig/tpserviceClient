@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import ReactMapGl, { Marker, NavigationControl, Popup } from 'react-map-gl';
 import { useDispatch, useSelector } from 'react-redux';
+import {Link} from 'react-router-dom'
 import { getTourById } from '../../redux/actions/tours';
 import Pin from '../../Assets/img/comp/pin.svg';
 import ImageAvatar from '../../components/Avatar/Avatar';
@@ -26,6 +27,7 @@ import {
   CardActions,
   IconButton,
   Typography,
+  // Link,
 } from '@material-ui/core';
 import {
   Timeline,
@@ -65,6 +67,7 @@ export default function TourPage(props) {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState(false);
   // const [dense, setDense] = useState(false);
+  const myRef = useRef(null);
   const [tourId, setTourId] = useState(props.location.state.id);
   const [tour, setTour] = useState();
   const [tourDate, setTourDate] = useState();
@@ -82,6 +85,7 @@ export default function TourPage(props) {
     zoom: 7,
     width: '100%',
     height: '100%',
+
   });
 
   const navControlStyle = {
@@ -113,6 +117,10 @@ export default function TourPage(props) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+const toScroll = () =>
+  myRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
   //For running only once when page render
   useEffect(() => {
     dispatch(getTourById(tourId));
@@ -170,11 +178,13 @@ export default function TourPage(props) {
               </Box>
             </Grid>
           </Grid>
+
           <Button
             variant='contained'
             color='secondary'
             className={classes.headerButton}
             startIcon={<LibraryAddIcon />}
+            onClick={toScroll}
           >
             Order tour
           </Button>
@@ -310,7 +320,7 @@ export default function TourPage(props) {
               <TimelineItem>
                 <TimelineOppositeContent className={classes.time}>
                   <Typography
-                    variant='h6'
+                    variant='body2'
                     color='textSecondary'
                     component='span'
                   >
@@ -330,10 +340,15 @@ export default function TourPage(props) {
                 </TimelineSeparator>
                 <TimelineContent>
                   <Paper elevation={3} className={classes.paper}>
-                    <Typography variant='h6' component='h1'>
+                    <Typography className={classes.timeTitle}>
                       Tour Start
                     </Typography>
-                    <Typography>{tour?.startLocation?.description}</Typography>
+                    <Typography
+                      className={classes.timeSubTitle}
+                      color='textSecondary'
+                    >
+                      {tour?.startLocation?.description}
+                    </Typography>
                   </Paper>
                 </TimelineContent>
               </TimelineItem>
@@ -354,7 +369,7 @@ export default function TourPage(props) {
                   </TimelineSeparator>
                   <TimelineContent>
                     <Paper elevation={3} className={classes.paper}>
-                      <Typography variant='h6' component='div'>
+                      <Typography className={classes.timeTitle}>
                         {el.description}
                       </Typography>
                       {/* <Typography
@@ -371,7 +386,7 @@ export default function TourPage(props) {
 
               <TimelineItem>
                 <TimelineOppositeContent className={classes.time}>
-                  <Typography variant='h6' color='textSecondary'>
+                  <Typography variant='body2' color='textSecondary'>
                     19:00
                   </Typography>
                 </TimelineOppositeContent>
@@ -382,7 +397,7 @@ export default function TourPage(props) {
                 </TimelineSeparator>
                 <TimelineContent>
                   <Paper elevation={3} className={classes.paper}>
-                    <Typography variant='h6' component='h1'>
+                    <Typography className={classes.timeTitle}>
                       Back Home
                     </Typography>
                     {/* <Typography>Because this is the life you love!</Typography> */}
@@ -400,6 +415,7 @@ export default function TourPage(props) {
               onViewportChange={(viewport) => SetViewPort(viewport)}
               mapStyle='mapbox://styles/maksydev/ckl8m1vzx03cm17n01lnkbbxu'
               className={classes.map}
+              scrollZoom={false}
             >
               <NavigationControl style={navControlStyle} />
               {tour?.locations?.map((loc) => (
@@ -453,7 +469,13 @@ export default function TourPage(props) {
         </Box>
       </CardContent>
       <CardActions className={classes.CardActions}>
-        <Grid container spacing={2} justify='center' alignItems='center'>
+        <Grid
+          container
+          ref={myRef}
+          spacing={2}
+          justify='center'
+          alignItems='center'
+        >
           {tour?.startDates?.map((date) => (
             <Grid item key={date._id}>
               {user ? (

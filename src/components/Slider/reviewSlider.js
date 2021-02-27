@@ -39,9 +39,8 @@ export const TourReviewSlider = ({ reviewArr }) => {
   const classes = makeStyles();
   return (
     <Swiper
-   
       spaceBetween={10}
-      // slidesPerView={2}
+      slidesPerView={1}
       autoplay={{ delay: 6000 }}
       loop={true}
       className={classes.reviewSwiperContainer}
@@ -67,8 +66,8 @@ export const TourReviewSlider = ({ reviewArr }) => {
       // height='100%'
       // effect='fade'
     >
-      {reviewArr?.map((review) => (
-        <Grid item key={review?._id} className={classes.GridItemReview}>
+      {reviewArr?.map((review, index) => (
+        <Grid item key={index} className={classes.GridItemReview}>
           <SwiperSlide>
             <Card className={classes.review}>
               <CardHeader

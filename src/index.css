@@ -15,12 +15,15 @@ code {
   box-sizing: border-box;
 }
 /* // sticky footer start */
-.site {
-  display: flex;
+
+
+.MainLayout{
+    display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
-.site-content {
+
+.SiteContent {
   flex: 1;
 }
 /* // sticky footer end */
@@ -46,4 +49,6 @@ body {
   font-weight: 400;
   /* color: $blackText; */
   background-color: #f7f7f7;
+
+
 }

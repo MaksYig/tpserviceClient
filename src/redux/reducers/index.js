@@ -5,6 +5,7 @@ import user from './user';
 import getUsers from './getUsers';
 import tours from './tours';
 import bookings from './booking';
+import rating from './rating'
 
 export default combineReducers({
   auth,
@@ -13,4 +14,5 @@ export default combineReducers({
   getUsers,
   tours,
   bookings,
+  rating,
 });
