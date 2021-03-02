@@ -38,7 +38,8 @@ export default function BookingCard() {
 
   return (
     <Fragment>
-      {bookings?.map((book) => (
+      {bookings?.length > 0 ?
+     <Fragment>      {bookings?.map((book) => (
         <Grid item xs={12} md={3} key={book._id}>
           <Paper className={classes.root} elevation={3}>
             <Card>
@@ -234,7 +235,9 @@ export default function BookingCard() {
             </Card>
           </Paper>
         </Grid>
-      ))}
+      ))}</Fragment> 
+    
+    : <Typography component='div' variant='body1'> You don't book tour yet...</Typography>}
     </Fragment>
   );
 }

@@ -21,6 +21,7 @@ import AdminUsers from '../../pages/AdminUsers/AdminUsers'
 import AdminTour from '../../components/Tours/Tour/AdminTour'
 import MyBookings from '../../pages/MyBookings/MyBookings'
 import AdminPanel from '../../components/AdminPanel/AdminPanel'
+import MyReview from '../../pages/MyReviews/MyReview'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -143,7 +144,9 @@ export default function UserLayout() {
       <TabPanel value={value} index={2}>
         <MyBookings/>
       </TabPanel>
-      <TabPanel value={value} index={3}></TabPanel>
+      <TabPanel value={value} index={3}>
+        <MyReview/>
+      </TabPanel>
       <TabPanel value={value} index={4}>
         <AdminPanel users />
         <AdminUsers />

@@ -14,4 +14,7 @@ export default makeStyles((theme) => ({
   SlideTextBox: {
     transform: 'translateX(-50%)',
   },
+  Rating:{
+    marginBottom:0,
+  },
 }));

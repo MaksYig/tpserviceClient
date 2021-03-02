@@ -106,12 +106,14 @@ export const TourReviewSlider = ({ reviewArr }) => {
                   borderColor='transparent'
                   display='flex'
                   justifyContent='center'
+                  className={classes.Rating}
                 >
                   <Rating
                     name='read-only'
                     value={review?.rating}
                     readOnly
                     precision={0.5}
+                    size='small'
                   />
                 </Box>
               </CardContent>

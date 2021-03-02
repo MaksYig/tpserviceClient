@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-// const API = axios.create({ baseURL: 'http://localhost:5000/api/ver1' });
-const API = axios.create({
-  baseURL: 'https://tpservice.herokuapp.com/api/ver1',
-});
+const API = axios.create({ baseURL: 'http://localhost:5000/api/ver1' });
+//TODO change beffore deploy Frontend 
+// const API = axios.create({
+//   baseURL: 'https://tpservice.herokuapp.com/api/ver1',
+// });
 const config = {
   withCredentials: true,
 };
@@ -46,3 +47,4 @@ export const getMyBokkings =()=> API.get(`/booking/my`, config)
 export const deleteMyBooking =(bookId)=>API.delete(`/booking/my/${bookId}`,config)
 
 export const createReview =(formData)=> API.post(`/review`,formData,config)
+export const getMyReviews = () => API.get(`/review`, config);
