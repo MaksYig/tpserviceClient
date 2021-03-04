@@ -58,10 +58,10 @@ export const NavBar = (props) => {
       <Toolbar className='Navbar'>
         {user ? (
           <Fragment>
-            {/* <MaiMenu /> */}
-            <NavLink to='/tours'>
+            <MaiMenu />
+            {/* <NavLink to='/tours'>
               <Button color='inherit'>Tours</Button>
-            </NavLink>
+            </NavLink> */}
             <NavLink to='/'>
               <Typography variant='h6'>TPService</Typography>
             </NavLink>

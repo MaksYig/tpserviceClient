@@ -44,12 +44,14 @@ export default function CustomizedMenus() {
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-  };
+   };
 
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+  const handleLinkClick =()=>{
+    setAnchorEl(null);
+  }
   return (
     <div>
       <Button
@@ -68,7 +70,7 @@ export default function CustomizedMenus() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <StyledMenuItem>
+        <StyledMenuItem onClick={handleLinkClick}>
           <ListItemIcon>
             <BurstMode fontSize='small' />
           </ListItemIcon>
@@ -76,7 +78,7 @@ export default function CustomizedMenus() {
             <ListItemText primary='Tours' />
           </NavLink>
         </StyledMenuItem>
-        <StyledMenuItem>
+        <StyledMenuItem onClick={handleLinkClick}>
           <ListItemIcon>
             <House fontSize='small' />
           </ListItemIcon>
@@ -84,11 +86,13 @@ export default function CustomizedMenus() {
             <ListItemText primary='Appartaments' />
           </NavLink>
         </StyledMenuItem>
-        <StyledMenuItem>
+        <StyledMenuItem onClick={handleLinkClick}>
           <ListItemIcon>
             <Favorite fontSize='small' />
           </ListItemIcon>
-          <ListItemText primary='Dates' />
+          <NavLink to='/dates'>
+            <ListItemText primary='Dates' />
+          </NavLink>
         </StyledMenuItem>
       </StyledMenu>
     </div>

@@ -1,5 +1,5 @@
 import React,{useState,useEffect, Fragment} from 'react'
-import {Box,Grid,Paper,Typography,Card,CardMedia,CardContent, CardActions} from '@material-ui/core'
+import {Box,Grid,Paper,Typography,Card,CardMedia,CardContent, CardActions,Button} from '@material-ui/core'
 import Rating from '@material-ui/lab/Rating';
 import {useDispatch,useSelector} from 'react-redux'
 import {getMyReviews} from '../../redux/actions/rating'
@@ -72,7 +72,13 @@ export default function ReviewCard() {
                   </Typography>
                 </Box>
               </CardContent>
-              <CardActions></CardActions>
+              <CardActions>
+                {new Date(review?.createdAt).toDateString() + 10 < Date.now() && (
+                  <Button variant='contained' color='secondary'>
+                    Delete review
+                  </Button>
+                )}
+              </CardActions>
             </Card>
           </Paper>
         </Grid>

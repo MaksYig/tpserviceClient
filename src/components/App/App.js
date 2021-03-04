@@ -12,6 +12,7 @@ import UpdatePassword from '../../pages/UpdatePassword/UpdatePassword';
 import AdminUsers from '../../pages/AdminUsers/AdminUsers'
 import TourPage from '../../pages/TourPage/TourPage'
 import MainPage from '../../pages/MainPage/MainPage'
+import DatingPage from '../../pages/Dating/DatingPage'
 
 
 
@@ -27,6 +28,7 @@ export function App() {
         <Alerts />
         <Switch>
           <Route exact path='/' component={MainPage} />
+          <Route exact path='/dates' component={DatingPage} />
           <Route exact path='/tours' component={Tours} />
           <Route path='/tour' component={TourPage} />
           {/* ================ USER PANEL LAYOUT-------------- */}
