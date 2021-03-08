@@ -22,6 +22,7 @@ export default makeStyles((theme) => ({
     bottom: 0,
     left: 0,
     right: 0,
+    zIndex:100,
   },
   Accordion: {
     backgroundColor: 'rgba(245,245,245,0.6)',

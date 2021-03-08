@@ -2,10 +2,13 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 export default makeStyles((theme) => ({
-  buttonNext: {
-    position: 'absolute',
-    width: 20,
-    height: 20,
-  },
-  PrevButton: {},
+  RowsBox:{
+    height:65,
+    maxWidth:340,
+    width:'100%',
+    bottom:'1.5%',
+    left:0,
+    right:0,
+    margin:'0 auto 0 auto'
+  }
 }));
