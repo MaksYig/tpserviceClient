@@ -7,7 +7,7 @@ export default makeStyles((theme) => ({
     width: '100%',
     // marginTop: '4%',
     // marginBottom: '5%',
-    margin:'4% auto 5% auto'
+    margin:'4% auto 0% auto'
   },
 
   Paper: {

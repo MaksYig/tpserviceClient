@@ -6,9 +6,10 @@ export default makeStyles((theme) => ({
     height:65,
     maxWidth:340,
     width:'100%',
-    bottom:'1.5%',
+    bottom:'40px',
     left:0,
     right:0,
-    margin:'0 auto 0 auto'
+    margin:'0 auto 0 auto',
+    position:'relative'
   }
 }));

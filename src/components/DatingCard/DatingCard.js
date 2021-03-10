@@ -52,7 +52,9 @@ export default function DatingCard() {
               nextEl: '.swiper-inside-button-next',
               prevEl: '.swiper-inside-button-prev',
             }}
+
             // allowTouchMove={false}
+
           >
             <SwiperSlide>
               <img
@@ -182,8 +184,8 @@ export default function DatingCard() {
               </Accordion>
             </Box>
           </Swiper>
-          <div class='swiper-inside-button-prev'></div>
-          <div class='swiper-inside-button-next'></div>
+          <div className='swiper-inside-button-prev'></div>
+          <div className='swiper-inside-button-next'></div>
         </CardMedia>
       </Paper>
     </Grid>
