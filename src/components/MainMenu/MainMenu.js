@@ -82,8 +82,8 @@ export default function CustomizedMenus() {
           <ListItemIcon>
             <House fontSize='small' />
           </ListItemIcon>
-          <NavLink to='/appart'>
-            <ListItemText primary='Appartaments' />
+          <NavLink to='/rents'>
+            <ListItemText primary='Rents' />
           </NavLink>
         </StyledMenuItem>
         <StyledMenuItem onClick={handleLinkClick}>

@@ -66,8 +66,8 @@ export const TourReviewSlider = ({ reviewArr }) => {
       // height='100%'
       // effect='fade'
     >
-      {reviewArr?.map((review, index) => (
-        <Grid item key={index} className={classes.GridItemReview}>
+      {reviewArr?.map((review, num) => (
+        <Grid item key={review.id} className={classes.GridItemReview}>
           <SwiperSlide>
             <Card className={classes.review}>
               <CardHeader

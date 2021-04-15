@@ -9,7 +9,7 @@ function Tours(props) {
   const classes = makeStyles();
   const dispatch = useDispatch();
   const tours = useSelector((state)=> state.tours.tours)
-
+  console.log(tours);
   useEffect(() => {
     dispatch(getAllTours());
   }, []);

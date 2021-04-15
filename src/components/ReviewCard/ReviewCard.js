@@ -1,21 +1,31 @@
-import React,{useState,useEffect, Fragment} from 'react'
-import {Box,Grid,Paper,Typography,Card,CardMedia,CardContent, CardActions,Button} from '@material-ui/core'
+import React, { useState, useEffect, Fragment } from 'react';
+import {
+  Box,
+  Grid,
+  Paper,
+  Typography,
+  Card,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Button,
+} from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
-import {useDispatch,useSelector} from 'react-redux'
-import {getMyReviews} from '../../redux/actions/rating'
-import makeStyles from './styles'
+import { useDispatch, useSelector } from 'react-redux';
+import { getMyReviews } from '../../redux/actions/rating';
+import makeStyles from './styles';
 
 export default function ReviewCard() {
   const classes = makeStyles();
-  const dispatch =useDispatch();
-  const [reviews,setReviews]=useState();
-  const Data = useSelector((state)=> state.rating.myReviews?.data?.myReviews)
+  const dispatch = useDispatch();
+  const [reviews, setReviews] = useState();
+  const Data = useSelector((state) => state.rating.myReviews?.data?.myReviews);
   useEffect(() => {
     dispatch(getMyReviews());
   }, []);
-  useEffect(()=>{
-    setReviews(Data)
-  },[Data])
+  useEffect(() => {
+    setReviews(Data);
+  }, [Data]);
   console.log('RATINGS', reviews);
   return (
     <Fragment>
@@ -73,7 +83,8 @@ export default function ReviewCard() {
                 </Box>
               </CardContent>
               <CardActions>
-                {new Date(review?.createdAt).toDateString() + 10 < Date.now() && (
+                {new Date(review?.createdAt).toDateString() + 10 <
+                  Date.now() && (
                   <Button variant='contained' color='secondary'>
                     Delete review
                   </Button>

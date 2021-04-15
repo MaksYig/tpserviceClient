@@ -84,6 +84,7 @@ export default function TourPage(props) {
   const bookings = useSelector((state) => state.bookings);
   const user = useSelector((state) => state.auth?.user);
 
+
   const [viewport, SetViewPort] = useState({
     latitude: 37.9908997,
     longitude: 23.7733589,
